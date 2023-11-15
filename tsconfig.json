@@ -1,9 +1,5 @@
 {
-  "include": [
-    "src",
-    "src/app/modules",
-
-  ], // which files to compile, "../frontend/event-front-end/src/utils"
+  "include": ["src", "src/app/modules"], // which files to compile, "../frontend/event-front-end/src/utils"
   "exclude": ["node_modules"], // which files to skip
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
