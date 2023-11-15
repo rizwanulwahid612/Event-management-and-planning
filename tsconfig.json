@@ -2,8 +2,7 @@
   "include": [
     "src",
     "src/app/modules",
-    "logs/permission",
-    "logs/userPermission"
+
   ], // which files to compile, "../frontend/event-front-end/src/utils"
   "exclude": ["node_modules"], // which files to skip
   "compilerOptions": {
