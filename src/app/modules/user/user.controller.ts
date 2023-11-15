@@ -6,19 +6,19 @@ import sendResponse from '../../../shared/sendResponse';
 import { IUser } from './user.interface';
 import { UserService } from './user.service';
 
-// const createFaculy: RequestHandler = catchAsync(
-//   async (req: Request, res: Response) => {
-//     const { faculty, ...userData } = req.body;
-//     const result = await UserService.createFaculty(faculty, userData);
+const createCustomer: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { customer, ...userData } = req.body;
+    const result = await UserService.createCustomer(customer, userData);
 
-//     sendResponse<IUser>(res, {
-//       statusCode: httpStatus.OK,
-//       success: true,
-//       message: "user created successfully!",
-//       data: result,
-//     });
-//   }
-// );
+    sendResponse<IUser>(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'user created successfully!',
+      data: result,
+    });
+  },
+);
 
 const createAdmin: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
@@ -35,6 +35,6 @@ const createAdmin: RequestHandler = catchAsync(
 );
 
 export const UserController = {
-  // createFaculy,
+  createCustomer,
   createAdmin,
 };

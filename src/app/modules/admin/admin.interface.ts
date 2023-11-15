@@ -1,5 +1,8 @@
-import { Model, Types } from "mongoose";
-import { IManagementDepartment } from "../managementDepartment/managementDepartment.inerface";
+import { Model, Types } from 'mongoose';
+import { IManagementDepartment } from '../managementDepartment/managementDepartment.inerface';
+import { IBooking } from '../booking/booking.interface';
+//import { IBooking } from '../booking/booking.interface';
+//import { IBooking } from '../booking/booking.interface';
 
 export type UserName = {
   firstName: string;
@@ -8,19 +11,23 @@ export type UserName = {
 };
 
 export type IAdmin = {
-  id: string;
+  id?: string;
   name: UserName;
-  profileImage: string;
+  profileImage?: string;
   dateOfBirth?: string;
   email: string;
   contactNo: string;
   emergencyContactNo: string;
-  gender?: "Male" | "Female" | "Others";
+  gender?: 'Male' | 'Female' | 'Others';
   permanentAddress?: string;
   presentAddress?: string;
-  bloodGroup?: "A+" | "A-" | "B+" | "B-" | "AB+" | "AB-" | "O+" | "O-";
+  bloodGroup?: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
   managementDepartment: Types.ObjectId | IManagementDepartment;
   designation: string;
+  notification?: {
+    message: string;
+    booking: IBooking[];
+  }[];
 };
 
 export type AdminModel = Model<IAdmin, Record<string, unknown>>;
@@ -31,8 +38,8 @@ export type IAdminFilters = {
   email?: string;
   contactNo?: string;
   emergencyContactNo?: string;
-  gender?: "Male" | "Female" | "Others";
-  bloodGroup?: "A+" | "A-" | "B+" | "B-" | "AB+" | "AB-" | "O+" | "O-";
+  gender?: 'Male' | 'Female' | 'Others';
+  bloodGroup?: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
   managementDepartment?: string;
   designation?: string;
 };

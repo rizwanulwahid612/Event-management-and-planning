@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 const updateAdmin = z.object({
   body: z.object({
@@ -13,6 +13,7 @@ const updateAdmin = z.object({
     gender: z.string().optional(),
 
     bloodGroup: z.string().optional(),
+    //gender: z.enum([...gender] as [string, ...string[]]).optional(),
 
     email: z.string().email().optional(),
 

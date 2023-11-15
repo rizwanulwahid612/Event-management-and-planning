@@ -1,23 +1,23 @@
-import { SortOrder } from "mongoose";
-import { paginationHelpers } from "../../../helpers/paginationHelper";
-import { IGenericResponse } from "../../../interfaces/common";
-import { IPaginationOptions } from "../../../interfaces/pagination";
-import { managementDepartmentSearchableFields } from "./managementDepartment.constant";
+import { SortOrder } from 'mongoose';
+import { paginationHelpers } from '../../../helpers/paginationHelper';
+import { IGenericResponse } from '../../../interfaces/common';
+import { IPaginationOptions } from '../../../interfaces/pagination';
+import { managementDepartmentSearchableFields } from './managementDepartment.constant';
 import {
   IManagementDepartment,
   IManagementDepartmentFilters,
-} from "./managementDepartment.inerface";
-import { ManagementDepartment } from "./managementDepartment.model";
+} from './managementDepartment.inerface';
+import { ManagementDepartment } from './managementDepartment.model';
 
 const createDepartment = async (
-  payload: IManagementDepartment
+  payload: IManagementDepartment,
 ): Promise<IManagementDepartment | null> => {
   const result = await ManagementDepartment.create(payload);
   return result;
 };
 
 const getSingleDepartment = async (
-  id: string
+  id: string,
 ): Promise<IManagementDepartment | null> => {
   const result = await ManagementDepartment.findById(id);
   return result;
@@ -25,7 +25,7 @@ const getSingleDepartment = async (
 
 const getAllDepartments = async (
   filters: IManagementDepartmentFilters,
-  paginationOptions: IPaginationOptions
+  paginationOptions: IPaginationOptions,
 ): Promise<IGenericResponse<IManagementDepartment[]>> => {
   // Extract searchTerm to implement search query
   const { searchTerm, ...filtersData } = filters;
@@ -36,10 +36,10 @@ const getAllDepartments = async (
   // Search needs $or for searching in specified fields
   if (searchTerm) {
     andConditions.push({
-      $or: managementDepartmentSearchableFields.map((field) => ({
+      $or: managementDepartmentSearchableFields.map(field => ({
         [field]: {
           $regex: searchTerm,
-          $options: "i",
+          $options: 'i',
         },
       })),
     });
@@ -80,20 +80,20 @@ const getAllDepartments = async (
 
 const updateDepartment = async (
   id: string,
-  payload: Partial<IManagementDepartment>
+  payload: Partial<IManagementDepartment>,
 ): Promise<IManagementDepartment | null> => {
   const result = await ManagementDepartment.findOneAndUpdate(
     { _id: id },
     payload,
     {
       new: true,
-    }
+    },
   );
   return result;
 };
 
 const deleteDepartment = async (
-  id: string
+  id: string,
 ): Promise<IManagementDepartment | null> => {
   console.log(id);
   const result = await ManagementDepartment.findByIdAndDelete(id);

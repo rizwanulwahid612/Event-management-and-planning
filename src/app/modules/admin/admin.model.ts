@@ -1,5 +1,5 @@
-import { Schema, model } from "mongoose";
-import { AdminModel, IAdmin } from "./admin.interface";
+import { Schema, model } from 'mongoose';
+import { AdminModel, IAdmin } from './admin.interface';
 
 const AdminSchema = new Schema<IAdmin, AdminModel>(
   {
@@ -30,11 +30,11 @@ const AdminSchema = new Schema<IAdmin, AdminModel>(
     },
     gender: {
       type: String,
-      enum: ["Male", "Female", "Others"],
+      enum: ['Male', 'Female', 'Others'],
     },
     bloodGroup: {
       type: String,
-      enum: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+      enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
     },
     email: {
       type: String,
@@ -60,7 +60,7 @@ const AdminSchema = new Schema<IAdmin, AdminModel>(
     },
     managementDepartment: {
       type: Schema.Types.ObjectId,
-      ref: "ManagementDepartment",
+      ref: 'ManagementDepartment',
       required: true,
     },
     designation: {
@@ -70,10 +70,27 @@ const AdminSchema = new Schema<IAdmin, AdminModel>(
     profileImage: {
       type: String,
     },
+    notification: [
+      {
+        message: {
+          type: String,
+        },
+        // booking: {
+        //   type: Schema.Types.ObjectId,
+        //   ref: 'Booking',
+        // },
+        booking: [
+          {
+            type: Schema.Types.ObjectId,
+            ref: 'Booking',
+          },
+        ],
+      },
+    ],
   },
   {
     timestamps: true,
-  }
+  },
 );
 
-export const Admin = model<IAdmin, AdminModel>("Admin", AdminSchema);
+export const Admin = model<IAdmin, AdminModel>('Admin', AdminSchema);

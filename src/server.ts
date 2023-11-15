@@ -1,9 +1,9 @@
-import { Server } from "http";
-import mongoose from "mongoose";
-import app from "./app";
-import config from "./config/index";
+import { Server } from 'http';
+import mongoose from 'mongoose';
+import app from './app';
+import config from './config/index';
 
-process.on("uncaughtException", (error) => {
+process.on('uncaughtException', error => {
   console.error(error);
   process.exit(1);
 });
@@ -19,10 +19,10 @@ async function bootstrap() {
       console.log(`Application  listening on port ${config.port}`);
     });
   } catch (err) {
-    console.error("Failed to connect database", err);
+    console.error('Failed to connect database', err);
   }
 
-  process.on("unhandledRejection", (error) => {
+  process.on('unhandledRejection', error => {
     if (server) {
       server.close(() => {
         console.error(error);
