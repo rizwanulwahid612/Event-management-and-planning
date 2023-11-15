@@ -27,7 +27,7 @@ const createPost = async (post: IPost): Promise<IPost | null> => {
   const customers = await Customer.find({});
   for (const customer of customers) {
     // Push the notification message to the 'notification' array
-    customer.notification.push({ message: notificationMessage });
+    customer?.notification?.push({ message: notificationMessage });
     await customer.save();
   }
 
