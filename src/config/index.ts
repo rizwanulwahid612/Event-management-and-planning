@@ -7,6 +7,8 @@ dotenv.config({ path: path.join(process.cwd(), '.env') });
 export default {
   env: process.env.NODE_ENV,
   port: process.env.PORT,
+  backend_url: process.env.BACKEND_URL,
+  frontend_url: process.env.FRONTEND_URL,
   database_url: process.env.DATABASE_URL,
   default_student_pass: process.env.DEFAULT_STUDENT_PASS,
   default_faculty_pass: process.env.DEFAULT_FACULTY_PASS,
