@@ -12,9 +12,10 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 //import config from './config';
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: [`${process.env.BACKEND_URL}`, `${process.env.FRONTEND_URL}`],
     // origin: ['http://localhost:3005/api/v1', 'http://localhost:3000'],
     //  methods: ['GET', 'POST', 'DELETE', 'PATCH'],
+    origin: 'http://localhost:3000',
+    // methods: ['GET', 'POST', 'DELETE', 'PATCH'],
     credentials: true,
 }));
 app.use((0, cookie_parser_1.default)());

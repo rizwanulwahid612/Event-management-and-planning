@@ -11,9 +11,10 @@ const app: Application = express();
 
 app.use(
   cors({
-    origin: [`${process.env.BACKEND_URL}`, `${process.env.FRONTEND_URL}`],
     // origin: ['http://localhost:3005/api/v1', 'http://localhost:3000'],
     //  methods: ['GET', 'POST', 'DELETE', 'PATCH'],
+    origin: 'http://localhost:3000',
+    // methods: ['GET', 'POST', 'DELETE', 'PATCH'],
     credentials: true,
   }),
 );
