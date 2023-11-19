@@ -14,7 +14,7 @@ const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
     // origin: ['http://localhost:3005/api/v1', 'http://localhost:3000'],
     //  methods: ['GET', 'POST', 'DELETE', 'PATCH'],
-    origin: 'http://localhost:3000',
+    origin: 'https://event-front-7trb2cdx8-rizwanulwahid612-gmailcom.vercel.app',
     // methods: ['GET', 'POST', 'DELETE', 'PATCH'],
     credentials: true,
 }));
