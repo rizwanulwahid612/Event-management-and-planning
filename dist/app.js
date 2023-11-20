@@ -11,13 +11,12 @@ const routes_1 = __importDefault(require("./app/routes"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 //import config from './config';
 const app = (0, express_1.default)();
-app.use((0, cors_1.default)({
-    // origin: ['http://localhost:3005/api/v1', 'http://localhost:3000'],
-    //  methods: ['GET', 'POST', 'DELETE', 'PATCH'],
+const corsOptions = {
     origin: 'https://event-front-l5t08m5ct-rizwanulwahid612-gmailcom.vercel.app',
-    // methods: ['GET', 'POST', 'DELETE', 'PATCH'],
+    methods: ['GET', 'POST', 'DELETE', 'PATCH', 'PUT'],
     credentials: true,
-}));
+};
+app.use((0, cors_1.default)(corsOptions));
 app.use((0, cookie_parser_1.default)());
 //parser
 app.use(express_1.default.json());
