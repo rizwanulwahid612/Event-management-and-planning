@@ -12,7 +12,11 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 //import config from './config';
 const app = (0, express_1.default)();
 const corsOptions = {
-    origin: 'https://event-front-l5t08m5ct-rizwanulwahid612-gmailcom.vercel.app',
+    origin: [
+        'https://localhost:3000',
+        'https://event-front-l5t08m5ct-rizwanulwahid612-gmailcom.vercel.app',
+    ],
+    //origin: '*',
     methods: ['GET', 'POST', 'DELETE', 'PATCH', 'PUT'],
     credentials: true,
 };
