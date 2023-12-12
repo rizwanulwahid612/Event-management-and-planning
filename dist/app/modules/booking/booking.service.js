@@ -77,7 +77,7 @@ const createBooking = (booking) => __awaiter(void 0, void 0, void 0, function* (
         const admins = yield admin_model_1.Admin.find();
         for (const admin of admins) {
             (_a = admin === null || admin === void 0 ? void 0 : admin.notification) === null || _a === void 0 ? void 0 : _a.push({
-                message: `New booking received of this customer name:${booking === null || booking === void 0 ? void 0 : booking.customerID} `,
+                message: `New booking received of this customer id:${booking === null || booking === void 0 ? void 0 : booking.customerID} `,
                 booking: [result],
             });
             yield admin.save();
@@ -86,7 +86,7 @@ const createBooking = (booking) => __awaiter(void 0, void 0, void 0, function* (
         const customer = yield customer_model_1.Customer.findById(booking === null || booking === void 0 ? void 0 : booking.customerID);
         if (customer) {
             (_b = customer === null || customer === void 0 ? void 0 : customer.notification) === null || _b === void 0 ? void 0 : _b.push({
-                message: `Your booking:${booking === null || booking === void 0 ? void 0 : booking.customerID}is panding & admin will confirmed please wait`,
+                message: ` CustomerId:${booking.customerID} Your booking is panding & admin will confirmed please wait`,
             });
             yield customer.save();
         }
@@ -187,7 +187,7 @@ const updateBooking = (id, payload) => __awaiter(void 0, void 0, void 0, functio
     return result;
 });
 const deleteBooking = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const service = yield booking_model_1.Booking.findOneAndDelete({ id });
+    const service = yield booking_model_1.Booking.findOneAndDelete({ _id: id });
     return service;
 });
 exports.BookingService = {

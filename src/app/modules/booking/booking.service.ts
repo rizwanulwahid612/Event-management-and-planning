@@ -71,7 +71,7 @@ const createBooking = async (booking: IBooking): Promise<IBooking | null> => {
 
     for (const admin of admins) {
       admin?.notification?.push({
-        message: `New booking received of this customer name:${booking?.customerID} `,
+        message: `New booking received of this customer id:${booking?.customerID} `,
         booking: [result],
       });
       await admin.save();
@@ -80,7 +80,7 @@ const createBooking = async (booking: IBooking): Promise<IBooking | null> => {
     const customer = await Customer.findById(booking?.customerID);
     if (customer) {
       customer?.notification?.push({
-        message: `Your booking:${booking?.customerID}is panding & admin will confirmed please wait`,
+        message: ` CustomerId:${booking.customerID} Your booking is panding & admin will confirmed please wait`,
       });
       await customer.save();
     }
@@ -206,7 +206,7 @@ const updateBooking = async (
 };
 
 const deleteBooking = async (id: string): Promise<IBooking | null> => {
-  const service = await Booking.findOneAndDelete({ id });
+  const service = await Booking.findOneAndDelete({ _id: id });
   return service;
 };
 export const BookingService = {
