@@ -17,7 +17,6 @@ const corsOptions = {
     //   'https://event-front-l5t08m5ct-rizwanulwahid612-gmailcom.vercel.app',
     // ],
     origin: `${process.env.FRONTEND_URL}`,
-    // methods: ['GET', 'POST', 'DELETE', 'PATCH', 'PUT'],
     credentials: true,
 };
 app.use((0, cors_1.default)(corsOptions));
