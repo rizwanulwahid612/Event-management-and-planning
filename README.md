@@ -1,6 +1,7 @@
 #Admin: userid: A-00001, password:123456
 #user/customer : C-00001, password:123456
 #Super_Admin: S-00001, password:123456
+#videolive:https://drive.google.com/file/d/1veSednUmsrh8sWF6nHQD0eEQFcxSi75i/view?usp=sharing
 frontend livelink:https://nextjs-front-end-event-management-and-planning-fccq4pt0z.vercel.app
 backend livelink:https://event-management-and-planning-955nyypit.vercel.app/api/v1
 PORT=3005
