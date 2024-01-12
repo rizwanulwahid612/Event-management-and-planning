@@ -3,14 +3,17 @@ import { Schema, model } from 'mongoose';
 
 const FeedbackSchema = new Schema<IFeedback, FeedbackModel>(
   {
-    customerId: {
-      type: Schema.Types.ObjectId,
-      ref: 'Customer',
-      required: true,
-    },
     comment: {
       type: String,
-      required: true,
+    },
+    customerName: {
+      type: String,
+    },
+    customerImage: {
+      type: String,
+    },
+    rating: {
+      type: String,
     },
   },
   {

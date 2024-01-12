@@ -1,3 +1,3 @@
-export const feedbackFilterableFields = ['searchTerm', 'customerId'];
+export const feedbackFilterableFields = ['searchTerm', 'customerName'];
 
-export const feedbackSearchableFields = ['customerId'];
+export const feedbackSearchableFields = ['customerName'];

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from 'express';
 import { RequestHandler } from 'express-serve-static-core';
 import httpStatus from 'http-status';
@@ -33,8 +34,22 @@ const createAdmin: RequestHandler = catchAsync(
     });
   },
 );
+const createAdminFromCustomer: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { customerId } = req.params as any;
+    const result = await UserService.createAdminFromCustomer(customerId);
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Admin created successfully!',
+      data: result,
+    });
+  },
+);
 
 export const UserController = {
   createCustomer,
   createAdmin,
+  createAdminFromCustomer,
 };

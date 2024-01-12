@@ -12,7 +12,7 @@ router.post(
   auth(
     ENUM_USER_ROLE.SUPER_ADMIN,
     ENUM_USER_ROLE.ADMIN,
-    ENUM_USER_ROLE.CUSTOMER,
+    // ENUM_USER_ROLE.CUSTOMER,
   ),
   PostController.createPost,
 );
@@ -41,7 +41,7 @@ router.patch(
   auth(
     ENUM_USER_ROLE.SUPER_ADMIN,
     ENUM_USER_ROLE.ADMIN,
-    ENUM_USER_ROLE.CUSTOMER,
+    //ENUM_USER_ROLE.CUSTOMER,
   ),
   PostController.updatePost,
 );

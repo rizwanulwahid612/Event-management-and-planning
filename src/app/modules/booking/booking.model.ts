@@ -14,6 +14,9 @@ const BookingRequestSchema = new Schema<IBookingRequest>({
     type: String,
     required: true,
   },
+  bookimage: {
+    type: String,
+  },
   apointmentdaysInWeek: {
     type: String,
     enum: [

@@ -3,7 +3,7 @@ import { IAdmin } from '../admin/admin.interface';
 
 export type IPost = {
   adminId: Types.ObjectId | IAdmin;
-  imagepost: string;
+  imagepost?: string;
   comment: string;
 };
 export type PostModel = Model<IPost, Record<string, unknown>>;

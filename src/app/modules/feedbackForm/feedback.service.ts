@@ -15,7 +15,7 @@ const createFeedback = async (
 };
 
 const getSingleFeedback = async (id: string): Promise<IFeedback | null> => {
-  const result = await Feedback.findOne({ _id: id }).populate('customerId');
+  const result = await Feedback.findOne({ _id: id });
 
   return result;
 };
@@ -62,7 +62,7 @@ const getAllFeedbacks = async (
     andConditions.length > 0 ? { $and: andConditions } : {};
 
   const result = await Feedback.find(whereConditions)
-    .populate('customerId')
+
     .sort(sortConditions)
     .skip(skip)
     .limit(limit);

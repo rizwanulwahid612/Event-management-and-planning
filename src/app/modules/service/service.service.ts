@@ -63,7 +63,7 @@ const createService = async (service: IService): Promise<IService | null> => {
 };
 
 const getSingleService = async (id: string): Promise<IService | null> => {
-  const result = await Service.findOne({ id }).populate('categoryIds');
+  const result = await Service.findOne({ _id: id }).populate('categoryIds');
   return result;
 };
 const getAllServices = async (
@@ -135,7 +135,7 @@ const updateService = async (
   return result;
 };
 const deleteService = async (id: string): Promise<IService | null> => {
-  const service = await Service.findOneAndDelete({ id });
+  const service = await Service.findOneAndDelete({ _id: id });
   return service;
 };
 export const ServiceService = {

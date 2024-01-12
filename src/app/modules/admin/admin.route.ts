@@ -13,7 +13,7 @@ router.get(
 );
 router.get(
   '/',
-  //auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   AdminController.getAllAdmins,
 );
 
@@ -24,6 +24,10 @@ router.patch(
   AdminController.updateAdmin,
 );
 
-router.delete('/:id', auth(ENUM_USER_ROLE.ADMIN), AdminController.deleteAdmin);
+router.delete(
+  '/:id',
+  auth(ENUM_USER_ROLE.SUPER_ADMIN),
+  AdminController.deleteAdmin,
+);
 
 export const AdminRoutes = router;

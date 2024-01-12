@@ -1,13 +1,15 @@
-import { Model, Types } from 'mongoose';
+import { Model } from 'mongoose';
 import { ICustomer } from '../customer/customer.interface';
 
 export type IFeedback = {
-  customerId: Types.ObjectId | ICustomer;
+  customerName: string;
+  customerImage: string;
   comment: string;
+  rating: string;
 };
 export type FeedbackModel = Model<IFeedback, Record<string, unknown>>;
 
 export type IFeedbackFilter = {
   searchTerm?: string | undefined;
-  customerId?: Types.ObjectId | ICustomer;
+  customerName?: string | ICustomer;
 };

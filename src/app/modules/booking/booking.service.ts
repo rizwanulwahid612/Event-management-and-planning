@@ -130,7 +130,7 @@ const confirmBooking = async (id: string): Promise<IBooking | null> => {
 };
 
 const getSingleBooking = async (id: string): Promise<IBooking | null> => {
-  const result = await Booking.findOne({ _id: id })
+  const result = await Booking.findOne({ id: id })
     .populate('customerID') // Populate the customerID field
     .populate('serviceIDs.categoryId');
   return result;
@@ -199,14 +199,14 @@ const updateBooking = async (
   id: string,
   payload: Partial<IBooking>,
 ): Promise<IBooking | null> => {
-  const result = await Booking.findOneAndUpdate({ _id: id }, payload, {
+  const result = await Booking.findOneAndUpdate({ id: id }, payload, {
     new: true,
   });
   return result;
 };
 
 const deleteBooking = async (id: string): Promise<IBooking | null> => {
-  const service = await Booking.findOneAndDelete({ _id: id });
+  const service = await Booking.findOneAndDelete({ id: id });
   return service;
 };
 export const BookingService = {

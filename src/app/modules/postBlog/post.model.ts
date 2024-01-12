@@ -14,7 +14,6 @@ const PostSchema = new Schema<IPost, PostModel>(
     },
     imagepost: {
       type: String,
-      required: true,
     },
   },
   {

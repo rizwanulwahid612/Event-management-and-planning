@@ -18,6 +18,7 @@ export type IBookingRequest = {
     | 'FRIDAY TO MONDAY'
     | '7 DAYS';
   isDeleted?: false;
+  bookimage?: string;
 };
 export type IBooking = {
   id: string;

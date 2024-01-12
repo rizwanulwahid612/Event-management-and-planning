@@ -9,16 +9,13 @@ import cookieParser from 'cookie-parser';
 
 const app: Application = express();
 
-const corsOptions = {
-  // origin: [
-  //   'https://localhost:3000',
-  //   'https://event-front-l5t08m5ct-rizwanulwahid612-gmailcom.vercel.app',
-  // ],
-  origin: `${process.env.FRONTEND_URL}`,
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: ['https://localhost:3000', 'http://localhost:3005'],
+//   // origin: `${process.env.FRONTEND_URL}`,
+//   credentials: true,
+// };
 
-app.use(cors(corsOptions));
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 app.use(cookieParser());
 
 //parser

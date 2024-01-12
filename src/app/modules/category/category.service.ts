@@ -128,7 +128,7 @@ const updateCategory = async (
   return result;
 };
 const deletecategory = async (id: string): Promise<ICategory | null> => {
-  const category = await Category.findOneAndDelete({ id });
+  const category = await Category.findOneAndDelete({ _id: id });
   //delete user
   // await User.deleteOne({ id });
   return category;
