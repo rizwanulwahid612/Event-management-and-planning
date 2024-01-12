@@ -1,4 +1,5 @@
-livelink:https://event-management-and-planning-955nyypit.vercel.app/api/v1
+frontend livelink:https://nextjs-front-end-event-management-and-planning-fccq4pt0z.vercel.app
+backend livelink:https://event-management-and-planning-955nyypit.vercel.app/api/v1
 PORT=3005
 BACKEND_URL=http://localhost:3005/api/v1
 NODE_ENV=development
